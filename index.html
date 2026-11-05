@@ -1,0 +1,1462 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="BRANDORA - Professional Web Development Studio. Build Your Brand. Grow Your Business.">
+<title>BRANDORA | Web Development Studio</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap');
+
+:root {
+    --bg: #080808;
+    --card: #111111;
+    --silver: #c7c7c7;
+    --white: #f5f5f5;
+    --muted: #999999;
+    --border: #292929;
+    --cyan: #00e5ff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.7;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    padding: 100px 0;
+    scroll-margin-top: 80px;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.section-title h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 45px);
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: var(--muted);
+}
+
+.highlight {
+    color: var(--silver);
+}
+
+.btn {
+    display: inline-block;
+    padding: 13px 27px;
+    border-radius: 30px;
+    background: var(--silver);
+    color: #080808;
+    font-weight: 700;
+    border: 1px solid var(--silver);
+    transition: .3s;
+}
+
+.btn:hover {
+    background: transparent;
+    color: var(--silver);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--silver);
+}
+
+.btn-outline:hover {
+    background: var(--silver);
+    color: #080808;
+}
+
+/* NAVBAR */
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(8,8,8,.92);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+    min-height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: 3px;
+}
+
+.logo span {
+    color: var(--silver);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    font-size: 13px;
+    color: #ccc;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    color: var(--cyan);
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.lang-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid #555;
+    border-radius: 20px;
+    padding: 8px 13px;
+}
+
+.lang-btn:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.menu-btn {
+    display: none;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 25px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-top: 100px;
+    background:
+    radial-gradient(ellipse at 50% 35%, #252525 0%, #111 35%, #080808 75%);
+}
+
+.hero-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.hero-label {
+    color: var(--silver);
+    letter-spacing: 5px;
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(45px, 8vw, 85px);
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.hero p {
+    color: #aaa;
+    max-width: 650px;
+    margin: 0 auto 35px;
+    font-size: 16px;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* PRICING */
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.price-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 35px 28px;
+    transition: all .35s ease;
+    position: relative;
+}
+
+/* CYAN HOVER EFFECT */
+
+.price-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--cyan);
+    box-shadow:
+        0 0 15px rgba(0,229,255,.25),
+        0 0 35px rgba(0,229,255,.12);
+}
+
+.price-card:hover h3,
+.price-card:hover .price {
+    color: var(--cyan);
+}
+
+.price-card:hover .btn {
+    background: var(--cyan);
+    border-color: var(--cyan);
+    color: #080808;
+}
+
+.price-card.featured {
+    border-color: var(--silver);
+    background: linear-gradient(145deg, #202020, #101010);
+}
+
+.price-card.featured:hover {
+    border-color: var(--cyan);
+}
+
+.popular {
+    display: inline-block;
+    padding: 5px 13px;
+    background: var(--silver);
+    color: #080808;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.price-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+    transition: .3s;
+}
+
+.price {
+    font-size: 29px;
+    font-weight: 800;
+    margin: 20px 0;
+    transition: .3s;
+}
+
+.price small {
+    font-size: 13px;
+    color: var(--muted);
+    font-weight: 400;
+}
+
+.price-card ul {
+    list-style: none;
+    margin: 25px 0;
+}
+
+.price-card li {
+    color: #aaa;
+    padding: 9px 0;
+    border-bottom: 1px solid #252525;
+    font-size: 14px;
+}
+
+.price-card li::before {
+    content: "✓ ";
+    color: var(--silver);
+    font-weight: bold;
+}
+
+.price-card .btn {
+    width: 100%;
+    text-align: center;
+}
+
+/* SERVICES */
+
+.services {
+    background: #0d0d0d;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.service-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 22px;
+    transition: .3s;
+}
+
+.service-card:hover {
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0,229,255,.12);
+    transform: translateY(-5px);
+}
+
+.service-icon {
+    font-size: 27px;
+    color: var(--silver);
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* PORTFOLIO */
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.project-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.project-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--cyan);
+    box-shadow: 0 0 20px rgba(0,229,255,.12);
+}
+
+.project-image {
+    height: 210px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #292929, #111);
+    color: #ddd;
+    font-family: 'Playfair Display', serif;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+.project-info {
+    padding: 23px;
+}
+
+.project-info h3 {
+    margin-bottom: 8px;
+}
+
+.project-info p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* ABOUT */
+
+.about {
+    background: #0d0d0d;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-visual {
+    min-height: 350px;
+    border: 1px solid #333;
+    border-radius: 25px;
+    background: radial-gradient(circle, #292929, #111 70%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.about-visual h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 45px;
+    letter-spacing: 5px;
+}
+
+.about-text h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    color: var(--muted);
+    margin-bottom: 18px;
+}
+
+/* CONTACT */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 50px;
+}
+
+.contact-info h3 {
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    color: var(--muted);
+    margin-bottom: 25px;
+}
+
+.contact-link {
+    display: block;
+    padding: 13px 17px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    transition: .3s;
+}
+
+.contact-link:hover {
+    border-color: var(--cyan);
+    color: var(--cyan);
+}
+
+.contact-form {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+}
+
+.contact-form h3 {
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: #080808;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    font-family: inherit;
+    outline: none;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: var(--cyan);
+}
+
+.contact-form textarea {
+    height: 140px;
+    resize: vertical;
+}
+
+.contact-form button {
+    width: 100%;
+}
+
+/* FAQ */
+
+.faq {
+    background: #0d0d0d;
+}
+
+.faq-item {
+    max-width: 800px;
+    margin: 12px auto;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 20px;
+    text-align: left;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 20px 20px;
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+/* FOOTER */
+
+footer {
+    padding: 35px 0;
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+footer .logo {
+    margin-bottom: 10px;
+}
+
+footer p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+    .nav-links {
+        gap: 13px;
+    }
+
+    .nav-links a {
+        font-size: 11px;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 750px) {
+    section {
+        padding: 75px 0;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 75px;
+        left: 0;
+        width: 100%;
+        padding: 25px;
+        background: #101010;
+        border-bottom: 1px solid var(--border);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .pricing-grid,
+    .portfolio-grid,
+    .about-content,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-visual {
+        min-height: 250px;
+    }
+}
+
+@media (max-width: 450px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price-card {
+        padding: 28px 22px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+    }
+}
+
+.project-image {
+    display: block;
+    height: 210px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s;
+}
+
+.project-image:hover img {
+    transform: scale(1.05);
+}
+
+
+/* ==============================
+   BRANDORA MOBILE RESPONSIVE
+============================== */
+
+/* Tablet */
+@media (max-width: 992px) {
+    .container {
+        width: 90%;
+    }
+
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .services-grid,
+    .pricing-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: 92%;
+    }
+
+    /* Navigation */
+    nav {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    nav ul {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        padding: 10px 0;
+    }
+
+    nav ul li {
+        margin: 0;
+    }
+
+    nav ul li a {
+        font-size: 13px;
+    }
+
+    /* Hero */
+    #home {
+        min-height: 75vh;
+        padding: 100px 0 60px;
+        text-align: center;
+    }
+
+    #home h1 {
+        font-size: clamp(32px, 9vw, 48px);
+        line-height: 1.2;
+    }
+
+    #home p {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+
+    /* Section headings */
+    .section-title h2 {
+        font-size: 28px;
+    }
+
+    .section-title p {
+        font-size: 14px;
+    }
+
+    /* Grids */
+    .portfolio-grid,
+    .services-grid,
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    /* Portfolio images */
+    .project-image {
+        height: 200px;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* Cards */
+    .project-card,
+    .service-card,
+    .pricing-card {
+        width: 100%;
+    }
+
+    /* Contact */
+    .contact-container,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    input,
+    textarea,
+    select {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Buttons */
+    button,
+    .btn {
+        max-width: 100%;
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+    }
+}
+
+/* Small Phones */
+@media (max-width: 400px) {
+
+    .container {
+        width: 94%;
+    }
+
+    #home h1 {
+        font-size: 30px;
+    }
+
+    .section-title h2 {
+        font-size: 24px;
+    }
+
+    nav ul {
+        gap: 9px;
+    }
+
+    nav ul li a {
+        font-size: 12px;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+
+        <a href="#home" class="logo">BRAND<span>ORA.</span></a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#home" data-en="Home" data-mm="ပင်မစာမျက်နှာ">Home</a>
+            <a href="#pricing" data-en="Pricing" data-mm="စျေးနှုန်း">Pricing</a>
+            <a href="#services" data-en="Services" data-mm="ဝန်ဆောင်မှုများ">Services</a>
+            <a href="#portfolio" data-en="Portfolio" data-mm="လက်ရာများ">Portfolio</a>
+            <a href="#about" data-en="About" data-mm="အကြောင်း">About</a>
+            <a href="#contact" data-en="Contact" data-mm="ဆက်သွယ်ရန်">Contact</a>
+            <a href="#faq" data-en="FAQ" data-mm="မေးလေ့ရှိသောမေးခွန်းများ">FAQ</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="lang-btn" id="langBtn" onclick="toggleLanguage()">MM</button>
+            <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        </div>
+
+    </div>
+</header>
+
+<!-- HOME -->
+
+<section class="hero" id="home">
+    <div class="container hero-content">
+
+        <div class="hero-label"
+        data-en="WEB DEVELOPMENT STUDIO"
+        data-mm="ဝဘ်ဆိုဒ် ဖန်တီးရေး စတူဒီယို">
+        WEB DEVELOPMENT STUDIO
+        </div>
+
+        <h1>
+            Your Vision.<br>
+            <span class="highlight">Our Creation.</span>
+        </h1>
+
+        <p data-en="We create modern, elegant and professional websites that help your business build its identity and grow online."
+        data-mm="သင့်လုပ်ငန်းအတွက် ခေတ်မီလှပပြီး ပရော်ဖက်ရှင်နယ်ဆန်သော Website များကို ဖန်တီးပေးပါသည်။">
+        We create modern, elegant and professional websites that help your business build its identity and grow online.
+        </p>
+
+        <div class="hero-buttons">
+            <a href="#contact" class="btn"
+            data-en="Start Your Project"
+            data-mm="ပရောဂျက် စတင်ရန်">Start Your Project</a>
+
+            <a href="#portfolio" class="btn btn-outline"
+            data-en="Explore Our Work"
+            data-mm="လက်ရာများ ကြည့်ရန်">Explore Our Work</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- PRICING -->
+
+<section id="pricing">
+    <div class="container">
+
+        <div class="section-title">
+            <h2 data-en="Our Pricing" data-mm="ကျွန်ုပ်တို့၏ စျေးနှုန်းများ">Our Pricing</h2>
+            <p data-en="Simple and transparent pricing for your business."
+            data-mm="သင့်လုပ်ငန်းအတွက် ရှင်းလင်းသော စျေးနှုန်းများ။">
+            Simple and transparent pricing for your business.
+            </p>
+        </div>
+
+        <div class="pricing-grid">
+
+            <div class="price-card">
+                <h3 data-en="One Page Website" data-mm="စာမျက်နှာတစ်မျက်နှာ Website">One Page Website</h3>
+
+                <p style="color:#999"
+                data-en="Perfect for personal brands and small businesses."
+                data-mm="ကိုယ်ပိုင် Brand နှင့် လုပ်ငန်းငယ်များအတွက်။">
+                Perfect for personal brands and small businesses.
+                </p>
+
+                <div class="price">250,000 MMK <small>/ starting</small></div>
+
+                <ul>
+                    <li data-en="Modern One Page Design" data-mm="ခေတ်မီ One Page Design">Modern One Page Design</li>
+                    <li data-en="Mobile Responsive" data-mm="ဖုန်းနှင့် ကိုက်ညီမှု">Mobile Responsive</li>
+                    <li data-en="Contact Section" data-mm="ဆက်သွယ်ရန် အပိုင်း">Contact Section</li>
+                    <li data-en="Basic SEO Setup" data-mm="အခြေခံ SEO ပြင်ဆင်မှု">Basic SEO Setup</li>
+                </ul>
+
+                <a href="#contact" class="btn btn-outline"
+                data-en="Get Started" data-mm="စတင်ရန်">Get Started</a>
+            </div>
+
+            <div class="price-card featured">
+                <span class="popular" data-en="POPULAR" data-mm="လူကြိုက်များ">POPULAR</span>
+
+                <h3 data-en="Online Shop Website" data-mm="Online Shop Website">Online Shop Website</h3>
+
+                <p style="color:#999"
+                data-en="For businesses selling products online."
+                data-mm="Online မှာ ပစ္စည်းရောင်းချလိုသော လုပ်ငန်းများအတွက်။">
+                For businesses selling products online.
+                </p>
+
+                <div class="price">700,000 MMK <small>/ starting</small></div>
+
+                <ul>
+                    <li data-en="Product Showcase" data-mm="ကုန်ပစ္စည်းပြသမှု">Product Showcase</li>
+                    <li data-en="Shopping Cart" data-mm="Shopping Cart">Shopping Cart</li>
+                    <li data-en="Mobile Responsive" data-mm="ဖုန်းနှင့် ကိုက်ညီမှု">Mobile Responsive</li>
+                    <li data-en="Contact Integration" data-mm="ဆက်သွယ်မှု ချိတ်ဆက်ခြင်း">Contact Integration</li>
+                </ul>
+
+                <a href="#contact" class="btn"
+                data-en="Get Started" data-mm="စတင်ရန်">Get Started</a>
+            </div>
+
+            <div class="price-card">
+                <h3 data-en="Custom Website" data-mm="စိတ်ကြိုက် Website">Custom Website</h3>
+
+                <p style="color:#999"
+                data-en="Designed around your unique requirements."
+                data-mm="သင့်လိုအပ်ချက်အတိုင်း စိတ်ကြိုက်ဖန်တီးပေးခြင်း။">
+                Designed around your unique requirements.
+                </p>
+
+                <div class="price"
+                data-en="Custom Quote"
+                data-mm="ညှိနှိုင်းရန်">Custom Quote</div>
+
+                <ul>
+                    <li data-en="Custom Design" data-mm="စိတ်ကြိုက် Design">Custom Design</li>
+                    <li data-en="Advanced Features" data-mm="အဆင့်မြင့် Features">Advanced Features</li>
+                    <li data-en="Custom Pages" data-mm="စိတ်ကြိုက် စာမျက်နှာများ">Custom Pages</li>
+                    <li data-en="Project-Based Pricing" data-mm="ပရောဂျက်အလိုက် စျေးနှုန်း">Project-Based Pricing</li>
+                </ul>
+
+                <a href="#contact" class="btn btn-outline"
+                data-en="Contact Us" data-mm="ဆက်သွယ်ရန်">Contact Us</a>
+            </div>
+
+        </div>
+
+        <p style="text-align:center;color:#777;font-size:12px;margin-top:25px;"
+        data-en="*Prices are starting estimates. Domain, hosting, premium tools and additional features may cost extra. Final pricing will be agreed before work begins."
+        data-mm="*ဖော်ပြပါစျေးနှုန်းများသည် အစပြုစျေးနှုန်းများဖြစ်သည်။ Domain၊ Hosting နှင့် အပို Features များအတွက် ကုန်ကျစရိတ် ထပ်မံရှိနိုင်ပြီး အလုပ်မစမီ စျေးနှုန်းအတည်ပြုပါမည်။">
+        *Prices are starting estimates. Domain, hosting, premium tools and additional features may cost extra. Final pricing will be agreed before work begins.
+        </p>
+
+    </div>
+</section>
+
+<!-- SERVICES -->
+
+<section class="services" id="services">
+    <div class="container">
+
+        <div class="section-title">
+            <h2 data-en="Our Services" data-mm="ကျွန်ုပ်တို့၏ ဝန်ဆောင်မှုများ">Our Services</h2>
+            <p data-en="Everything your business needs to build a strong online presence."
+            data-mm="သင့်လုပ်ငန်း Online ပေါ်တွင် ရပ်တည်နိုင်ရန် လိုအပ်သော ဝန်ဆောင်မှုများ။">
+            Everything your business needs to build a strong online presence.
+            </p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon">◈</div>
+                <h3 data-en="Business Website" data-mm="Business Website">Business Website</h3>
+                <p data-en="Professional websites for small and growing businesses."
+                data-mm="လုပ်ငန်းငယ်နှင့် တိုးတက်နေသော လုပ်ငန်းများအတွက်။">
+                Professional websites for small and growing businesses.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">▣</div>
+                <h3 data-en="Corporate Website" data-mm="Corporate Website">Corporate Website</h3>
+                <p data-en="Elegant websites that represent your company."
+                data-mm="သင့်ကုမ္ပဏီကို ကိုယ်စားပြုမည့် Website များ။">
+                Elegant websites that represent your company.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">▤</div>
+                <h3 data-en="E-commerce Website" data-mm="E-commerce Website">E-commerce Website</h3>
+                <p data-en="Online stores to showcase and sell products."
+                data-mm="ကုန်ပစ္စည်းများ ရောင်းချနိုင်သော Online Store များ။">
+                Online stores to showcase and sell products.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">⌂</div>
+                <h3 data-en="Restaurant Website" data-mm="Restaurant Website">Restaurant Website</h3>
+                <p data-en="Beautiful websites for restaurants and cafes."
+                data-mm="စားသောက်ဆိုင်နှင့် ကော်ဖီဆိုင်များအတွက်။">
+                Beautiful websites for restaurants and cafes.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✧</div>
+                <h3 data-en="Portfolio Website" data-mm="Portfolio Website">Portfolio Website</h3>
+                <p data-en="Showcase your skills, work and achievements."
+                data-mm="သင့်အရည်အချင်းနှင့် လက်ရာများကို ပြသရန်။">
+                Showcase your skills, work and achievements.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">▤</div>
+                <h3 data-en="Landing Page" data-mm="Landing Page">Landing Page</h3>
+                <p data-en="Focused pages for products and campaigns."
+                data-mm="ကုန်ပစ္စည်းနှင့် ကြော်ငြာ Campaign များအတွက်။">
+                Focused pages for products and campaigns.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">▧</div>
+                <h3 data-en="Blog Website" data-mm="Blog Website">Blog Website</h3>
+                <p data-en="Share articles, stories and information online."
+                data-mm="ဆောင်းပါးနှင့် အကြောင်းအရာများ မျှဝေရန်။">
+                Share articles, stories and information online.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">✦</div>
+                <h3 data-en="Custom Website" data-mm="Custom Website">Custom Website</h3>
+                <p data-en="Unique website solutions tailored to your ideas."
+                data-mm="သင့်စိတ်ကူးအတိုင်း ထူးခြားသော Website များ။">
+                Unique website solutions tailored to your ideas.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PORTFOLIO -->
+
+<section id="portfolio">
+    <div class="container">
+
+        <div class="section-title">
+            <h2 data-en="Our Portfolio"
+                data-mm="ကျွန်ုပ်တို့၏ လက်ရာများ">
+                Our Portfolio
+            </h2>
+
+            <p data-en="Explore our concept and demo website designs."
+               data-mm="ကျွန်ုပ်တို့၏ Demo Website Design များကို ကြည့်ရှုပါ။">
+                Explore our concept and demo website designs.
+            </p>
+        </div>
+
+        <div class="portfolio-grid">
+
+            <!-- LUXE STORE -->
+            <div class="project-card">
+
+                <a href="https://hika-html.github.io/example.shop/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="project-image">
+
+                    <img src="images/Example-store.jpg.jpeg"
+                         alt="Luxe Store Website">
+
+                </a>
+
+                <div class="project-info">
+
+                    <h3 data-en="Fashion E-commerce"
+                        data-mm="Fashion Online Shop">
+                        Fashion E-commerce
+                    </h3>
+
+                    <p data-en="A modern online fashion store concept."
+                       data-mm="ခေတ်မီ Fashion Online Shop Demo။">
+                        A modern online fashion store concept.
+                    </p>
+
+                    <a href="https://hika-html.github.io/example.shop/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="project-link">
+                        View Website ↗
+                    </a>
+
+                </div>
+            </div>
+
+            <!-- MONO CAFE -->
+            <div class="project-card">
+
+                <a href="https://hika-html.github.io/Mono-cafe/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="project-image">
+
+                    <img src="images/Mono-Cafe.jpeg"
+                         alt="MONO Cafe Website">
+
+                </a>
+
+                <div class="project-info">
+
+                    <h3 data-en="Cafe Website"
+                        data-mm="Cafe Website">
+                        Cafe Website
+                    </h3>
+
+                    <p data-en="An elegant website concept for a cafe."
+                       data-mm="ကော်ဖီဆိုင်အတွက် လှပသော Website Demo။">
+                        An elegant website concept for a cafe.
+                    </p>
+
+                    <a href="https://hika-html.github.io/Mono-cafe/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       class="project-link">
+                        View Website ↗
+                    </a>
+
+                </div>
+            </div>
+
+        </div>
+
+        <p style="text-align:center;color:#777;font-size:12px;margin-top:25px;"
+           data-en="*These are demo concepts created for portfolio presentation, not client projects."
+           data-mm="*ဤလက်ရာများသည် Portfolio ပြသရန် ဖန်တီးထားသော Demo များဖြစ်ပြီး Client Project များမဟုတ်ပါ။">
+            *These are demo concepts created for portfolio presentation, not client projects.
+        </p>
+
+    </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+    <div class="container about-content">
+
+        <div class="about-visual">
+            <h2>BRANDORA</h2>
+        </div>
+
+        <div class="about-text">
+            <h2 data-en="Build Your Brand. Grow Your Business."
+            data-mm="သင့် Brand ကို တည်ဆောက်ပါ။ လုပ်ငန်းကို တိုးတက်စေပါ။">
+            Build Your Brand. Grow Your Business.
+            </h2>
+
+            <p data-en="BRANDORA is a web development studio focused on creating elegant, modern and functional websites for businesses of all sizes."
+            data-mm="BRANDORA သည် လုပ်ငန်းအရွယ်အစားမရွေးအတွက် လှပပြီး ခေတ်မီအသုံးဝင်သော Website များ ဖန်တီးပေးသည့် Web Development Studio ဖြစ်ပါသည်။">
+            BRANDORA is a web development studio focused on creating elegant, modern and functional websites for businesses of all sizes.
+            </p>
+
+            <p data-en="Our goal is to help businesses establish a professional online identity through thoughtful design and practical web solutions."
+            data-mm="ကျွန်ုပ်တို့၏ ရည်ရွယ်ချက်မှာ ကောင်းမွန်သော Design နှင့် အသုံးဝင်သော Website များဖြင့် လုပ်ငန်းများကို Online ပေါ်တွင် ပိုမိုထင်ရှားစေရန် ဖြစ်ပါသည်။">
+            Our goal is to help businesses establish a professional online identity through thoughtful design and practical web solutions.
+            </p>
+
+            <a href="#contact" class="btn"
+            data-en="Work With Us" data-mm="ကျွန်ုပ်တို့နှင့် လက်တွဲရန်">Work With Us</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact">
+    <div class="container">
+
+        <div class="section-title">
+            <h2 data-en="Let's Work Together" data-mm="အတူတကွ လက်တွဲကြမယ်">Let's Work Together</h2>
+            <p data-en="Have a project in mind? Contact us today."
+            data-mm="Website Project တစ်ခု ရှိပါသလား။ ယနေ့ပဲ ဆက်သွယ်လိုက်ပါ။">
+            Have a project in mind? Contact us today.
+            </p>
+        </div>
+
+        <div class="contact-grid">
+
+            <div class="contact-info">
+                <h3 data-en="Get In Touch" data-mm="ဆက်သွယ်ရန်">Get In Touch</h3>
+
+                <p data-en="Choose your preferred platform to contact BRANDORA."
+                data-mm="BRANDORA ကို သင်နှစ်သက်ရာ Platform မှ ဆက်သွယ်နိုင်ပါသည်။">
+                Choose your preferred platform to contact BRANDORA.
+                </p>
+
+                <a class="contact-link" href="#" id="telegramLink">Telegram — https://t.me/Killy_H</a>
+                <a class="contact-link" href="#" id="viberLink">Viber — 09785262643</a>
+                <a class="contact-link" href="#" id="emailLink">Email — thih77619@gmail.com</a>
+                <a class="contact-link" href="#" id="facebookLink">Phone Number — 09785262643</a>
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <h3 data-en="Send An Inquiry" data-mm="မေးမြန်းရန် ပေးပို့ပါ">Send An Inquiry</h3>
+
+                <input type="text" id="name" placeholder="Your Name" required>
+
+                <input type="email" id="email" placeholder="Your Email" required>
+
+                <input type="text" id="project" placeholder="Project Type" required>
+
+                <textarea id="message" placeholder="Tell us about your project..." required></textarea>
+
+                <button type="submit" class="btn"
+                data-en="Copy Inquiry Message"
+                data-mm="မေးမြန်းချက်ကို Copy ကူးရန်">
+                Copy Inquiry Message
+                </button>
+
+                <p id="formStatus" style="margin-top:12px;color:#aaa;font-size:13px;"></p>
+            </form>
+
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+
+<section class="faq" id="faq">
+    <div class="container">
+
+        <div class="section-title">
+            <h2 data-en="Frequently Asked Questions"
+            data-mm="မေးလေ့ရှိသော မေးခွန်းများ">
+            Frequently Asked Questions
+            </h2>
+
+            <p data-en="Answers to common questions about our services."
+            data-mm="ကျွန်ုပ်တို့၏ ဝန်ဆောင်မှုများနှင့် ပတ်သက်သော မေးခွန်းများ။">
+            Answers to common questions about our services.
+            </p>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span data-en="How long does a website take?"
+                data-mm="Website တစ်ခု ပြီးဖို့ ဘယ်လောက်ကြာမလဲ။">
+                How long does a website take?
+                </span>
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer"
+            data-en="The timeline depends on the size and features of your project. We will provide an estimated timeline before starting."
+            data-mm="Project အရွယ်အစားနှင့် Features များပေါ်မူတည်ပါသည်။ အလုပ်မစမီ ခန့်မှန်းအချိန်ကို ပြောပြပါမည်။">
+            The timeline depends on the size and features of your project. We will provide an estimated timeline before starting.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span data-en="Can I request custom designs?"
+                data-mm="စိတ်ကြိုက် Design တောင်းဆိုလို့ရပါသလား။">
+                Can I request custom designs?
+                </span>
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer"
+            data-en="Yes. We can discuss your ideas and create a design based on your requirements."
+            data-mm="ရပါတယ်။ သင့်စိတ်ကူးများကို ဆွေးနွေးပြီး လိုအပ်ချက်အတိုင်း ဖန်တီးပေးနိုင်ပါသည်။">
+            Yes. We can discuss your ideas and create a design based on your requirements.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span data-en="Are domain and hosting included?"
+                data-mm="Domain နဲ့ Hosting ပါဝင်ပါသလား။">
+                Are domain and hosting included?
+                </span>
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer"
+            data-en="Domain and hosting are generally separate costs unless specifically included in your agreed package."
+            data-mm="သဘောတူထားသော Package ထဲတွင် ထည့်သွင်းမထားပါက Domain နှင့် Hosting သည် သီးခြားကုန်ကျစရိတ်ဖြစ်ပါသည်။">
+            Domain and hosting are generally separate costs unless specifically included in your agreed package.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">
+                <span data-en="How can I start a project?"
+                data-mm="Project တစ်ခု ဘယ်လိုစတင်ရမလဲ။">
+                How can I start a project?
+                </span>
+                <span>+</span>
+            </button>
+
+            <div class="faq-answer"
+            data-en="Contact us with your project details. We will discuss your requirements, pricing and timeline."
+            data-mm="သင့် Project အကြောင်းအရာများကို ပေးပို့ပါ။ လိုအပ်ချက်၊ စျေးနှုန်းနှင့် အချိန်တို့ကို ဆွေးနွေးပါမည်။">
+            Contact us with your project details. We will discuss your requirements, pricing and timeline.
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="container">
+
+        <div class="logo">BRAND<span>ORA.</span></div>
+
+        <p data-en="Build Your Brand. Grow Your Business."
+        data-mm="သင့် Brand ကို တည်ဆောက်ပါ။ လုပ်ငန်းကို တိုးတက်စေပါ။">
+        Build Your Brand. Grow Your Business.
+        </p>
+
+        <p style="margin-top:15px;">
+            © <span id="year"></span> BRANDORA. All Rights Reserved.
+        </p>
+
+    </div>
+</footer>
+
+<script>
+
+// LANGUAGE SWITCH
+
+let currentLanguage = "en";
+
+function toggleLanguage() {
+    currentLanguage = currentLanguage === "en" ? "mm" : "en";
+
+    document.querySelectorAll("[data-en]").forEach(element => {
+        element.textContent = element.getAttribute("data-" + currentLanguage);
+    });
+
+    document.getElementById("langBtn").textContent =
+        currentLanguage === "en" ? "MM" : "EN";
+
+    document.documentElement.lang = currentLanguage;
+}
+
+// MOBILE MENU
+
+function toggleMenu() {
+    document.getElementById("navLinks").classList.toggle("show");
+}
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+    link.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("show");
+    });
+});
+
+// FAQ
+
+document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const item = button.parentElement;
+        item.classList.toggle("active");
+
+        const icon = button.querySelector("span:last-child");
+
+        icon.textContent =
+            item.classList.contains("active") ? "−" : "+";
+    });
+});
+
+// CONTACT FORM
+
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const project = document.getElementById("project").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    const inquiry =
+`BRANDORA PROJECT INQUIRY
+
+Name: ${name}
+Email: ${email}
+Project: ${project}
+
+Message:
+${message}`;
+
+    const status = document.getElementById("formStatus");
+
+    try {
+        await navigator.clipboard.writeText(inquiry);
+
+        status.textContent =
+        "Inquiry copied! Send it to BRANDORA through your preferred contact platform.";
+
+    } catch (error) {
+        status.textContent =
+        "Copy failed. Please copy your inquiry manually.";
+    }
+});
+
+// CURRENT YEAR
+
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
+```
